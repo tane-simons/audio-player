@@ -1,0 +1,23 @@
+:root {
+    --black: #282828;
+    --white: #ffffff;
+    --jazz-color: #eb7927;
+    --classical-color: #657eb4;
+    --pop-color: #d86a91;
+}
+
+@font-face {
+    src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff');
+    font-family: 'SF-Bold';
+}
+
+html {
+    background-color: var(--jazz-color);
+}
+
+h1 {
+    text-align: center;
+    color: var(--black);
+    font-family: 'SF-Bold';
+    font-size: 2rem;
+}
