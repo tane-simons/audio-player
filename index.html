@@ -13,26 +13,27 @@
         <a href="">
             link to song
         </a>
-        <p id="artist"></p>
-        <button id="pause">
-            PAUSE
+        <p id="artist-container"></p>
+        <button id="pause-button">
+            PLAY
         </button>
-        <input type="range" step="10" max="2010" min="1900" id="slider" value="1960">
-        <p>Year: <output id="slider-value"></output></p>
-        <input type="radio" id="jazz" name="genre">
-        <label for="jazz">
+        <input type="range" step="10" max="2000" min="1900" id="slider" value="2000">
+        <p>Decade: <output id="slider-value"></output>s</p>
+        <input type="radio" id="Jazz" name="genre">
+        <label for="Jazz">
             Jazz
         </label>
-        <input type="radio" id="pop" name="genre">
-        <label for="pop">
+        <input type="radio" id="Popular" name="genre">
+        <label for="Popular">
             Pop
         </label>
-        <input type="radio" id="classical" name="genre">
-        <label for="classical">
+        <input type="radio" id="Classical" name="genre">
+        <label for="Classical">
             Classical
         </label>
-        <img src="/assets/images/record.gif"
-
+        <img src="/assets/images/record.gif">
+        <div id="title-container"></div>
+        <div id="audio-container"></div>
     </body>
     <script src="/assets/js/script.js" defer></script>
 </html>
