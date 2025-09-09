@@ -20,6 +20,15 @@ slider.addEventListener("input", () => { //decade slider input
 document.querySelectorAll("input[name='genre']").forEach(radio => {
     radio.addEventListener("change", (event) => { //changin genres
         genre = event.target.id; //storing genre
+        if (genre === "Classical") {
+            document.body.style.backgroundColor = "var(--classical-color)";
+        }
+        else if (genre === "Jazz") {
+            document.body.style.backgroundColor = "var(--jazz-color)";
+        }
+        else if (genre === "Popular") {
+            document.body.style.backgroundColor = "var(--pop-color)";
+        };
         audio(slider.value, genre); //calls audio
     });
 });
@@ -41,23 +50,21 @@ async function audio(year, genre) {
         
         //display current song and info
         const title = song1.title;
-        const title2 = song2.title;
-        title2Container.innerHTML = `<p>${title2}</p>`
         const artist = song1.credits[0].name;
         const id = song1.id;
         titleContainer.innerHTML = `<p>${title}</p>`;
         artistContainer.innerHTML = `<p>${artist}</p>`;
-        linkContainer.href = `https://www.collection.nfsa.gov.au/title/${id}}`;
+        linkContainer.href = `https://www.collection.nfsa.gov.au/title/${id}}`;//link to nfsa page
         audioContainer.innerHTML = `<audio controls autoplay id="now-playing"><source src="${audioUrl}" type="audio/mpeg"></audio>`;
+        const title2 = song2.title; //up next
+        title2Container.innerHTML = `<p>${title2}</p>`
     } catch (error) { //when no matching
         titleContainer.innerHTML = "<p>No matches</p>";
         audioContainer.innerHTML = "";
         artistContainer.innerHTML = "";
+        title2Container.innerHTML = "";
     }
 }
-
-//link to nfsa page
-
 
 //pause func
 pauseButton.addEventListener("click", () => {

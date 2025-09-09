@@ -7,35 +7,45 @@
     </head>
     <body>
         <h1>JUKEBOX</h1>
-        <p id="song-title">
-
-        </p>
-        <a href="" id="link-container" _blank noopener noreferrer>
-            Link
-        </a>
-        <p id="artist-container"></p>
-        <button id="pause-button">
-            PLAY
-        </button>
-        <input type="range" step="10" max="2000" min="1900" id="slider" value="2000">
-        <p>Decade: <output id="slider-value"></output>s</p>
-        <input type="radio" id="Jazz" name="genre">
-        <label for="Jazz">
-            Jazz
-        </label>
-        <input type="radio" id="Popular" name="genre">
-        <label for="Popular">
-            Pop
-        </label>
-        <input type="radio" id="Classical" name="genre">
-        <label for="Classical">
-            Classical
-        </label>
-        <img src="/assets/images/record.gif">
-        <div id="title-container"></div>
-        <div id="audio-container"></div>
-        <p>up next</p>
+        <main>
+            <div id="left">
+                <div id="record-info">
+                    <img src="/assets/images/record.gif">
+                    <div id="main-info">
+                        <p id="title-container"></p>
+                        <p id="artist-container"></p>
+                    </div>
+                    <a href="" id="link-container" _blank noopener noreferrer>
+                        Link
+                    </a>
+                    <button id="pause-button">
+                        PLAY
+                    </button>
+                </div>
+                <input type="range" step="10" max="2000" min="1900" id="slider" value="1940">
+                <p><output id="slider-value"></output>s</p>
+                <div id="genre-selector">
+                    <input type="radio" id="Jazz" name="genre">
+                        <label for="Jazz">
+                            Jazz
+                        </label>
+                    <input type="radio" id="Popular" name="genre">
+                        <label for="Popular">
+                            Pop
+                        </label>
+                    <input type="radio" id="Classical" name="genre">
+                        <label for="Classical">
+                            Classical
+                        </label>
+                </div>
+            </div>
+            <div id="right">
+                <p>up next</p>
         <div id="title-2-container"></div>
+            </div>
+        </main>
+        <div id="audio-container"></div>
+        
     </body>
     <script src="/assets/js/script.js" defer></script>
 </html>
