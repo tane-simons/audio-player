@@ -5,7 +5,10 @@ const title2Container = document.getElementById("title-2-container");
 const artistContainer = document.getElementById("artist-container");
 const audioContainer = document.getElementById("audio-container");
 const pauseButton = document.getElementById("pause-button");
-const linkContainer = document.getElementById("link-container")
+const linkContainer = document.getElementById("link-container");
+const record = document.getElementById("record");
+let nowPlaying;
+let isPlaying = false;
 let genre = "Jazz"; //preset to jazz
 document.getElementById("Jazz").checked = true; //show the radio jazz
 
@@ -13,13 +16,14 @@ document.getElementById("Jazz").checked = true; //show the radio jazz
 sliderValue.textContent = slider.value;
 slider.addEventListener("input", () => { //decade slider input
     sliderValue.textContent = slider.value; //updates html
-    audio(slider.value, genre) //calls audio
+    audio(slider.value, genre); //calls audio
 });
 
 //genre selection
 document.querySelectorAll("input[name='genre']").forEach(radio => {
     radio.addEventListener("change", (event) => { //changin genres
         genre = event.target.id; //storing genre
+        //updating background colours
         if (genre === "Classical") {
             document.body.style.backgroundColor = "var(--classical-color)";
         }
@@ -55,9 +59,33 @@ async function audio(year, genre) {
         titleContainer.innerHTML = `<p>${title}</p>`;
         artistContainer.innerHTML = `<p>${artist}</p>`;
         linkContainer.href = `https://www.collection.nfsa.gov.au/title/${id}}`;//link to nfsa page
-        audioContainer.innerHTML = `<audio controls autoplay id="now-playing"><source src="${audioUrl}" type="audio/mpeg"></audio>`;
+        audioContainer.innerHTML = `<audio controls id="now-playing"><source src="${audioUrl}" type="audio/mpeg"></audio>`;
+        nowPlaying = document.getElementById("now-playing");
+        
+        //if playing before resume
+        if (isPlaying) {
+            nowPlaying.play();
+            pauseButton.textContent = "PAUSE";
+            record.src = "assets/images/record.gif"
+        } else {
+            pauseButton.textContent = "PLAY";
+            record.src = "assets/images/record.png";
+        }
+        
         const title2 = song2.title; //up next
-        title2Container.innerHTML = `<p>${title2}</p>`
+        title2Container.innerHTML = `<p>${title2}</p>`;
+        
+        //audio states
+        if (isPlaying) {
+            nowPlaying.play();
+            pauseButton.innerHTML = "PAUSE";
+            record.src = "assets/images/record.gif";
+        } else {
+            pauseButton.innerHTML = "PLAY";
+            record.src = "assets/images/record.png";
+        }
+
+        
     } catch (error) { //when no matching
         titleContainer.innerHTML = "<p>No matches</p>";
         audioContainer.innerHTML = "";
@@ -68,13 +96,18 @@ async function audio(year, genre) {
 
 //pause func
 pauseButton.addEventListener("click", () => {
-    const nowPlaying = document.getElementById("now-playing")
+    const nowPlaying = document.getElementById("now-playing");
+    if (!nowPlaying) return; //no audio yet
     if (!nowPlaying.paused) { //audio is playing
         nowPlaying.pause();
-        pauseButton.textContent = "PLAY";
-    } else {
+        pauseButton.innerHTML = "PLAY";
+        record.src = "assets/images/record.png";
+        isPlaying = false;
+    } else { //audio isnt playing
         nowPlaying.play();
-        pauseButton.textContent = "PAUSE";
+        pauseButton.innerHTML = "PAUSE";
+        record.src = "assets/images/record.gif";
+        isPlaying = true;
     }
 });
 
