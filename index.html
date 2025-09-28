@@ -6,46 +6,87 @@
         <link rel="stylesheet" href="assets/css/styles.css">
     </head>
     <body>
-        <h1>JUKEBOX</h1>
+        <header>
+            <h1>JUKEBOX</h1>
+            <img src="assets/symbols/info.circle.fill.svg" id="info">
+        </header>
+        <div id="full-screen-info">
+            <div id="info-panel">
+                <div id="heading-and-x">
+                    <p id="info-heading">
+                    About
+                    </p>
+                    <img id="x" src="assets/symbols/x.circle.fill.svg">
+                </div>
+                <p>
+                    JUKEBOX allows you to explore the National Film and Sound Archive’s musical collection by genre and decade.
+                </p>
+                <p>
+                    Simply select the a genre from Pop, Classical, or Jazz, and drag the decade slider to experience a historic track.
+                </p>
+                <img id="info-panel-record" src="assets/images/record.png">
+                <p>
+                    This project was produced by students in the Faculty of Arts & Design, University of Canberra, 2025.
+                </p>
+            </div>
+        </div>
         <main>
             <div id="left">
-                <div id="record-info">
+                <div id="info-and-button">
                     <img src="assets/images/record.png" id="record">
+
                     <div id="main-info">
                         <p id="title-container"></p>
                         <p id="artist-container"></p>
                     </div>
-                    <a href="" id="link-container" _blank noopener noreferrer>
-                        Link
-                    </a>
-                    <button id="pause-button">
-                        PLAY
-                    </button>
+
+                    <div id="controls-group">
+                        <a href="" id="link-container" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/symbols/arrow.up.right.square.fill.svg" id="link-icon">
+                        </a>
+                        <button id="pause-button">
+                        <img id="pause-icon" src="assets/symbols/play.fill.svg">
+                        </button>
+                    </div>
                 </div>
-                <input type="range" step="10" max="2000" min="1900" id="slider" value="1940">
-                <p><output id="slider-value"></output>s</p>
+                <div id="slider-and-range">
+                    <div id="slider-input-output">
+                        <input type="range" step="10" max="2000" min="1900" id="slider" value="1940">
+                        <output id="slider-value">1940s</output>
+                    </div>
+                    <div id="decade-range">
+                        <p>
+                            1900
+                        </p>
+                        <p>
+                            2009
+                        </p>
+                    </div>
+                </div>
                 <div id="genre-selector">
                     <input type="radio" id="Jazz" name="genre">
-                        <label for="Jazz">
+                        <label for="Jazz" class="current-genre">
                             Jazz
                         </label>
-                    <input type="radio" id="Popular" name="genre">
-                        <label for="Popular">
-                            Pop
-                        </label>
-                    <input type="radio" id="Classical" name="genre">
+                        <input type="radio" id="Classical" name="genre">
                         <label for="Classical">
                             Classical
+                        </label>
+                        <input type="radio" id="Popular" name="genre">
+                        <label for="Popular">
+                            Pop
                         </label>
                 </div>
             </div>
             <div id="right">
-                <p>up next</p>
-        <div id="title-2-container"></div>
+                <div id="up-next-container">
+                    <p id="up-next">Up Next</p>
+                    <div id="up-next-songs">
+                    </div>
+                </div>
             </div>
         </main>
         <div id="audio-container"></div>
-        
     </body>
     <script src="assets/js/script.js" defer></script>
 </html>
