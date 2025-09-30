@@ -161,7 +161,7 @@ function UpNext() {
     nextSongs.forEach((song, i) => { //current song, i from array of 3
         const div = document.createElement("div");
         div.classList.add("up-next-song"); //for each up next song
-        div.innerHTML = `<p id="up-next-title">${capitalize(song.title)}</p><p id="up-next-artist">${capitalize(song.credits[0]?.name)}</p>`; //details of up next songs
+        div.innerHTML = `<p id="up-next-title">${capitalize(song.title)}</p><p id="up-next-artist">${song.credits[0]?.name}</p>`; //details of up next songs
 
         div.addEventListener("click", () => { //ability to click on a song and it will start playng from there in the array
             currentIndex = currentIndex + 1 + i; //updates main array to the clicked songs position (eg on song 5, clikced on 2nd from up next array where i is 1, then 5+1+1 updates main array to 7)

@@ -11,20 +11,20 @@
 /* FONTS */
 
 @font-face {
-    src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff');
-    font-family: 'sf-bold';
+    src: url(../fonts/SF-Pro.ttf);
+    font-family: 'san-francisco';
 }
 
 @font-face {
-    src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff');
-    font-family: 'sf-regular'
+    src: url(../fonts/NewYork.ttf);
+    font-family: 'new-york';
 }
 
 /* MAIN CODE */
 
 body {
     background-color: var(--jazz-color);
-    font-family: sf-regular, sans-serif;
+    font-family: san-francisco, sans-serif;
     height: 100vh;
 }
 
@@ -32,11 +32,16 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    justify-items: center;
+    align-items: center;
     margin: 1rem 0 0 0;
     gap: 1rem;
 }
 /* info overlay */
+#info {
+    height: 2rem;
+    width: 2rem;
+}
+
 #info:hover {
     cursor: pointer;
 }
@@ -77,8 +82,8 @@ header {
 }
 
 #info-heading {
-    font-family: new-york-regular, serif;
-    font-size: 3vw;
+    font-family: san-francisco, sans-serif;
+    font-size: clamp(2rem, 3vw, 5rem);
     font-weight: 600;
 }
 
@@ -106,8 +111,10 @@ main {
 h1 {
     text-align: center;
     opacity: 80%;
-    font-family: sf-bold, sans-serif;
+    font-family: san-francisco, sans-serif;
     font-size: 2.5rem;
+    font-weight: 700;
+    
 }
 
 /* LEFT SIDE */
@@ -164,7 +171,7 @@ h1 {
 
 #title-container {
     font-size: 4vw;
-    font-family: new-york-regular, serif;
+    font-family: new-york;
     margin: 0 0 2rem 0;
 }
 
@@ -178,8 +185,9 @@ h1 {
 
 #artist-container {
     font-size: 3vw;
-    font-family: sf-bold, sans-serif;
+    font-family: san-francisco, sans-serif;
     opacity: 80%;
+    font-weight: 800;
 }
 
 #pause-button {
@@ -191,11 +199,15 @@ h1 {
     cursor: pointer;
 }
 
+#test {
+    width: 100%;
+}
+
 #slider-and-range {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.rem;
     width: 100%;
     position: relative;
 }
@@ -210,17 +222,31 @@ h1 {
     border-radius: 50%;
     margin: 0 0 1rem 0;
     width: 100%;
+    background-color: transparent;
 }
 
 #slider-value {
     position: absolute;
-    top: 0.2rem;
-    font-weight: 600;
+    top: 0.1rem;
+    font-weight: 500;
     pointer-events: none;
+    font-size: 1.2rem;
     color: var(--jazz-color);
 }
 
+@-moz-document url-prefix() {
+    #slider-value {
+        top: 0rem;
+    }
+}
+
 #slider::-webkit-slider-runnable-track {
+    background: var(--black);
+    border-radius: 10px;
+    height: 0.4rem;
+}
+
+#slider::-moz-range-track {
     background: var(--black);
     border-radius: 10px;
     height: 0.4rem;
@@ -231,10 +257,22 @@ h1 {
     width: 5rem;
     height: 2rem;
     background: var(--white);
-    cursor: grab;
+    cursor: ew-resize;
     border-radius: 1rem;
     margin-top: -0.8rem;
     box-shadow: 0px 2px 4px var(--black);
+    border: none;
+}
+
+#slider::-moz-range-thumb {
+    appearance: none;
+    width: 5rem;
+    height: 2rem;
+    background: var(--white);
+    cursor: ew-resize;
+    border-radius: 1rem;
+    box-shadow: 0px 2px 4px var(--black);
+    border: none;
 }
 
 #decade-range {
@@ -243,15 +281,13 @@ h1 {
     justify-content: space-between;
     width: 60%;
     font-size: 1.2rem;
-    font-weight: 600;
-
+    font-weight: 500;
 }
 
 #genre-selector {
-    margin: 3rem 0 0 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 40%;
 }
 
@@ -261,14 +297,16 @@ input[type="radio"] {
 
 label {
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 500;
     padding: 0.5rem 1rem;
     border-radius: 2rem;
     cursor: pointer;
+    color: white;
 }
 
 label:hover {
     background-color: white;
+    color: var(--black);
     box-shadow: 0px 2px 4px var(--black);
 }
 
@@ -307,24 +345,25 @@ label[for="Classical"].current-genre {
 }
 
 #up-next-container {
-    border-left: 0.1rem solid var(--black);
+    border-left: 0.2vw solid var(--black);
     padding: 2rem;
 }
 
 #up-next {
     font-size: 4vw;
     margin: 0 0 1vw 0;
-    font-family: new-york-regular, serif;
+    font-weight: 500;
+    font-family: san-francisco, sans-serif;
 }
 
 #up-next-title {
-    font-size: clamp(0rem, 2vw, 1.2rem);
+    font-size: clamp(0rem, 2vw, 1.5rem);
 }
 
 #up-next-artist {
     padding: 0.3rem 0 1rem 0;
     font-weight: 600;
-    font-size: clamp(0rem, 1.8vw, 1rem);
+    font-size: clamp(0rem, 1.4vw, 1.2rem);
 }
 
 #up-next-songs p:hover {
@@ -370,6 +409,7 @@ label[for="Classical"].current-genre {
         justify-self: center;
         width: 60vw;
         height: 60vw;
+
     }
 
     #main-info {
