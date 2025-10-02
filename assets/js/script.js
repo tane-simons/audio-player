@@ -12,6 +12,8 @@ const record = document.getElementById("record");
 const infoButton = document.getElementById("info");
 const fullScreenInfo = document.getElementById("full-screen-info");
 const exitInfo = document.getElementById("x");
+const recordArm = document.getElementById("record-arm");
+
 let nowPlaying;
 let isPlaying = false; //start stopped
 let songs = []; //full array of songs
@@ -136,6 +138,7 @@ function loadSong(index) { //takes index from array as will be needed in up next
     //play/pause button
     if (isPlaying) {
         nowPlaying.play();
+        recordArm.style.transform = "rotate(190deg)"
         pauseIcon.src = "assets/symbols/pause.svg";
         if (window.innerWidth < 580) {
             pauseIcon.style.width = "5vw";
@@ -144,6 +147,7 @@ function loadSong(index) { //takes index from array as will be needed in up next
         }
     } else {
         pauseIcon.src = "assets/symbols/play.fill.svg";
+        recordArm.style.transform = "rotate(170deg)"
         if (window.innerWidth < 580) {
             pauseIcon.style.width = "8vw";
         } else {
@@ -175,11 +179,11 @@ function UpNext() {
 
 // record spinning func
 function spin() {
-    angle = (angle+speed)%360; //changes angle by current speed, looping every 360
+    angle = (angle+speed); //changes angle by current speed
     record.style.transform = `rotate(${angle}deg)`; //css rotate animation
 
     if (Math.abs(speed-targetSpeed)>0.01) { //check for current speed relative to target speed (above 0)
-        speed += (targetSpeed-speed)*0.05; //used to ease speed in so it doesnt start fast spinning immediately with 5% accel
+        speed += (targetSpeed-speed)*0.02; //used to ease speed in so it doesnt start fast spinning immediately with 5% accel
         requestAnimationFrame(spin); //looping every frame
     } else { //when target speed is reached speed is set to the constant
         speed = targetSpeed;
@@ -204,6 +208,7 @@ pauseButton.addEventListener("click", () => {
     if (!nowPlaying) return; //no audio yet
     if (!nowPlaying.paused) { //audio is playing
         nowPlaying.pause();
+        recordArm.style.transform = "rotate(170deg)"
         pauseIcon.src = "assets/symbols/play.fill.svg"; //pause symbols
         if (window.innerWidth < 580) {
             pauseIcon.style.width = "8vw";
@@ -215,6 +220,7 @@ pauseButton.addEventListener("click", () => {
     } else { //audio isnt playing
         nowPlaying.play();
         pauseIcon.src = "assets/symbols/pause.svg"; //pause symbols
+        recordArm.style.transform = "rotate(190deg)"
         if (window.innerWidth < 580) {
             pauseIcon.style.width = "5vw";
         } else {
