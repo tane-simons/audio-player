@@ -139,22 +139,19 @@ function loadSong(index) { //takes index from array as will be needed in up next
     if (isPlaying) {
         nowPlaying.play();
         pauseIcon.src = "assets/symbols/pause.svg";
+        recordArm.style.transform = "rotate(230deg)"
         if (window.innerWidth < 580) {
-            recordArm.style.transform = "rotate(330deg)"
             pauseIcon.style.width = "5vw";
         } else {
-            recordArm.style.transform = "rotate(190deg)"
             pauseIcon.style.width = "2vw";
         }
     } else {
         pauseIcon.src = "assets/symbols/play.fill.svg";
-        
+        recordArm.style.transform = "rotate(210deg)"
         if (window.innerWidth < 580) {
             pauseIcon.style.width = "8vw";
-            recordArm.style.transform = "rotate(310deg)"
         } else {
             pauseIcon.style.width = "3vw";
-            recordArm.style.transform = "rotate(170deg)"
         }
     }
 }
@@ -211,8 +208,8 @@ pauseButton.addEventListener("click", () => {
     if (!nowPlaying) return; //no audio yet
     if (!nowPlaying.paused) { //audio is playing
         nowPlaying.pause();
-        recordArm.style.transform = "rotate(170deg)"
         pauseIcon.src = "assets/symbols/play.fill.svg"; //pause symbols
+        recordArm.style.transform = "rotate(210deg)"
         if (window.innerWidth < 580) {
             pauseIcon.style.width = "8vw";
         } else {
@@ -223,7 +220,7 @@ pauseButton.addEventListener("click", () => {
     } else { //audio isnt playing
         nowPlaying.play();
         pauseIcon.src = "assets/symbols/pause.svg"; //pause symbols
-        recordArm.style.transform = "rotate(190deg)"
+        recordArm.style.transform = "rotate(230deg)"
         if (window.innerWidth < 580) {
             pauseIcon.style.width = "5vw";
         } else {
