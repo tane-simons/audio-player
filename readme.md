@@ -3,7 +3,7 @@
 [GitHub Pages](https://tane-simons.github.io/audio-player/)
 
 ## Initial Ideation
-The NFSA featured three main media types: audio, video, and images. As having not worked with audio yet, the decision was made to make it the primary focus of the site. Creating an audio player would be a unique process and a require limiting control over data that is presented.
+The NFSA featured three main media types: audio, video, and images (NFSA, 2025). As having not worked with audio yet, the decision was made to make it the primary focus of the site. Creating an audio player would be a unique process and a require limiting control over data that is presented.
 
 The 'digital flaneur' (Dörk et al., 2011) appeared in research and provided the foundation for the site's design, influencing its minimalism, lack of search, and encouragement to 'wander' through the selections.
 
@@ -23,10 +23,10 @@ In order to provide a link to the source in a user-friendly manner, the data.id 
 `https://www.collection.nfsa.gov.au/title/${id}`
 
 ### Responsiveness
-Responsiveness on the site was achieved through relative sizing and break points. The text was adjusted using clamp(), allowing minimum, variable, and maximum sizes of the text – necessary as text became too small and large on certain screenwidths. Elements were responsively adjusted through percentages and viewport sizings, with static size elements using rem. At 580px the desktop view of the site becomes too small to reasonably display the content at which a breakpoint was created, changing to a vertically stacked mobile view with all the same elements and controls in order to maintain feature parity and familiarity.
+Responsiveness on the site was achieved through relative sizing and break points. The text was adjusted using clamp() (Mozilla, 2025), allowing minimum, variable, and maximum sizes of the text – necessary as text became too small and large on certain screenwidths. Elements were responsively adjusted through percentages and viewport sizings, with static size elements using rem. At 580px the desktop view of the site becomes too small to reasonably display the content at which a breakpoint was created, changing to a vertically stacked mobile view with all the same elements and controls in order to maintain feature parity and familiarity.
 
 ### Other Features
-The slider was created using the default html `<slider>` element which could be styled and utilised as necessary. The decade text is calculated and updates with the thumb's position. The slider and genre selection are both linked directly to the API call to update it whenever either is changed.
+The slider was created using the default html `<slider>` element which could be styled and utilised as necessary (W3Schools, 2025). The decade text is calculated and updates with the thumb's position. The slider and genre selection are both linked directly to the API call to update it whenever either is changed.
 
 The custom-designed spinning record used JS to alter rotation and added easing of movement in/out upon the play/pause trigger. The record arm uses a similar technique, adding visual flair and feedback that something is playing.
 
@@ -37,3 +37,9 @@ Ideally future iterations would see a more thorough catalogue or selection in or
 
 ## References
 Dörk, M., Carpendale, S., & Williamson, C. (2011). The Information Flaneur: A Fresh Look at Information Seeking. https://mariandoerk.de/informationflaneur/chi2011.pdf
+
+Mozilla. (2025). clamp() - CSS: Cascading Style Sheets | MDN. Developer.mozilla.org. https://developer.mozilla.org/en-US/docs/Web/CSS/clamp
+
+National Film and Sound Archive (NFSA). (2025). NFSA - Search the Collection. Nfsa.gov.au. https://www.collection.nfsa.gov.au/
+
+W3Schools. (2025). How To Create Range Sliders. Www.w3schools.com. https://www.w3schools.com/howto/howto_js_rangeslider.asp
