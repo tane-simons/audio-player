@@ -138,20 +138,23 @@ function loadSong(index) { //takes index from array as will be needed in up next
     //play/pause button
     if (isPlaying) {
         nowPlaying.play();
-        recordArm.style.transform = "rotate(190deg)"
         pauseIcon.src = "assets/symbols/pause.svg";
         if (window.innerWidth < 580) {
+            recordArm.style.transform = "rotate(330deg)"
             pauseIcon.style.width = "5vw";
         } else {
+            recordArm.style.transform = "rotate(190deg)"
             pauseIcon.style.width = "2vw";
         }
     } else {
         pauseIcon.src = "assets/symbols/play.fill.svg";
-        recordArm.style.transform = "rotate(170deg)"
+        
         if (window.innerWidth < 580) {
             pauseIcon.style.width = "8vw";
+            recordArm.style.transform = "rotate(310deg)"
         } else {
             pauseIcon.style.width = "3vw";
+            recordArm.style.transform = "rotate(170deg)"
         }
     }
 }
