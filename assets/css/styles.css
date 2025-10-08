@@ -423,6 +423,7 @@ label[for="Classical"].current-genre {
         justify-self: center;
         width: 60vw;
         height: 60vw;
+        margin-bottom: 10vh;
     }
 
     #record-arm {
@@ -464,7 +465,7 @@ label[for="Classical"].current-genre {
         flex-direction: row-reverse;
         width: 95%;
         justify-content: space-between;
-        margin: 5vh 0 0 0;
+        margin: 10vh 0 0 0;
     }
 
     #link-icon {
