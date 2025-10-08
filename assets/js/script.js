@@ -231,4 +231,21 @@ pauseButton.addEventListener("click", () => {
     }
 });
 
+//resizing of pause button
+window.addEventListener("resize", () => {
+    if (window.innerWidth < 580) {
+        if (isPlaying) {
+            pauseIcon.style.width = "5vw";
+        } else {
+            pauseIcon.style.width = "8vw";
+        }
+    } else {
+        if (isPlaying) {
+            pauseIcon.style.width = "2vw";
+        } else {
+            pauseIcon.style.width = "3vw";
+        }
+    }
+});
+
 audio(slider.value, genre); //calls main audio

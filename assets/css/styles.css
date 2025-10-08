@@ -432,6 +432,7 @@ label[for="Classical"].current-genre {
         top: -16vw;
         left: 35vw;
         rotate: 100deg;
+        overflow: visible;
     }
 
     #main-info {
@@ -465,7 +466,7 @@ label[for="Classical"].current-genre {
         flex-direction: row-reverse;
         width: 95%;
         justify-content: space-between;
-        margin: 10vh 0 0 0;
+        margin: 15vw 0 0 0;
     }
 
     #link-icon {
@@ -477,7 +478,7 @@ label[for="Classical"].current-genre {
     }
 
     #slider-and-range {
-        margin: 0 0 5vw 0;
+        margin: -10vw 0 7vw 0;
     }
 
     #decade-range {
